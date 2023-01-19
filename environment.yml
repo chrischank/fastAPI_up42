@@ -1,0 +1,19 @@
+name: api_up42
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - sat-search
+  - geopandas
+  - pip
+  - rasterio
+  - fiona
+  - pip:
+      - geojson
+      - shapely
+      - python-multipart
+      - fastapi
+      - "uvicorn[standard]"
+      - pytest
+      - numpy
+      - httpx
