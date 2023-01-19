@@ -20,6 +20,26 @@ The goal of this challenge is to create a simple API in Python that, for a provi
  - [ ] Implement additional unit tests that mock the SAT-API response.
  - [ ] Perform async requests into the Element84 API.
 
+## Folder structure
+
+``` text
+ tree .
+.
+├── assets
+│   └── map.geojson
+├── fastAPI
+    ├── __init__.py
+    ├── main.py
+│   └── ndvi.py
+├── test
+│   └── test_main.py
+├── trash
+│   └── NDVI_COG.ipynb
+├── Dockerfile
+├── README.md
+└── environment.yml
+```
+
 ## Result
 
 For this exercise, 3 Endpoints were created.
