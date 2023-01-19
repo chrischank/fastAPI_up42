@@ -47,10 +47,10 @@ docker build -t challenge .
 docker run -d --name mycontainer -p 80:80 challenge
 ```
 
-And finally:
+And finally visit:
 
 ```bash
-visit http://0.0.0.0/docs
+http://0.0.0.0/docs
 ```
 and try the Endpoints
 
