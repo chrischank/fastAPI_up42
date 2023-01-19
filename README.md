@@ -86,12 +86,10 @@ FROM continuumio/miniconda3:latest
 RUN apt update && apt upgrade
 
 # Set the current working directory to /code.
-#This is where we'll put the environment.yml file and the fastAPI directory.
+# This is where we'll put the environment.yml file and the fastAPI directory.
 WORKDIR /code
 
 # Copy the file with the requirements to the /code directory.
-# Copy only the file with the requirements first, not the rest of the code.
-# As this file doesn't change often, Docker will detect it and use the cache for this step, enabling the cache for the next step too.
 COPY ./env_explicit.yml /code/environment.yml
 
 RUN conda config --set restore_free_channel true
