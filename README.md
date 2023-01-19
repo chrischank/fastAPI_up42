@@ -28,8 +28,8 @@ The goal of this challenge is to create a simple API in Python that, for a provi
 ├── assets
 │   └── map.geojson
 ├── fastAPI
-    ├── __init__.py
-    ├── main.py
+│   ├── __init__.py
+│   ├── main.py
 │   └── ndvi.py
 ├── test
 │   └── test_main.py
