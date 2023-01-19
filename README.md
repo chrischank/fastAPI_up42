@@ -29,7 +29,15 @@ The other two generate the requested result but with GET and POST, giving the op
 
 ## Installation
 
-Create and activate python virtual environment then, but for the realization of this challenge, it is necessary the use of [Miniconda](https://docs.conda.io/en/latest/miniconda.html) for the creation of environments. This is due to a lack of compatibility between the geopanda and sat-search packages, which is solved by using conda-force.
+In order to make use of the challenge script, a Docker image has been created so that it can be run on any device.
+
+For this we must first:
+
+```bash
+git clone https://github.com/diegoalarc/fastAPI_up42.git
+
+cd fastAPI_up42/
+```
 
 To run the application:
 
@@ -39,7 +47,11 @@ docker build -t challenge .
 docker run -d --name mycontainer -p 80:80 challenge
 ```
 
-Then visit http://0.0.0.0/docs \
+And finally:
+
+```bash
+visit http://0.0.0.0/docs
+```
 and try the Endpoints
 
 ## Testing
