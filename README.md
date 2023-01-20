@@ -72,7 +72,15 @@ And finally visit:
 ```bash
 http://0.0.0.0/docs
 ```
-and try the Endpoints
+and try the Endpoints.
+
+### Endpoints description
+
+For this project 3 Endpoints were generated, which are:
+
+1. We have "/" as the default Endpoint with greetings to everyone in UP42.
+2. We have "/mean_ndvi_wg" which is a GET that will deliver the requested average. In this we have by default the conditions of the challenge.
+3. We have "/mean_ndvi_wp" which is a POST that will give us the requested average. In this one we have by default most of the conditions of the challenge except for the geometry, which is in the assets folder with the name map.geojson and must be loaded in the Endpoint.
 
 ## Testing
 
@@ -81,27 +89,27 @@ For this purpose, the pytest package was used. The test files are localed inside
 We need to modify the Dockerfile as follow:
 
 ```bash
-FROM continuumio/miniconda3:latest
-
-RUN apt update && apt upgrade
+FROM mambaorg/micromamba:1.2.0
 
 # Set the current working directory to /code.
-# This is where we'll put the environment.yml file and the fastAPI directory.
+#This is where we'll put the environment.yml file and the fastAPI directory.
 WORKDIR /code
 
 # Copy the file with the requirements to the /code directory.
+# Copy the file with the requirements to the /code directory.
 COPY ./environment.yml /code/environment.yml
 
-RUN conda config --set restore_free_channel true
-RUN conda env create -f environment.yml
+RUN micromamba create --name api_up42 --yes --file /code/environment.yml && \
+    micromamba clean --all --yes
+
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
 # Activate env
 ENV PATH /opt/conda/envs/api_up42/bin:$PATH
-RUN /bin/bash -c "source activate api_up42"
 
 EXPOSE 80
 
-# Testing folder
+# Copy fastAPI testing folder
 COPY ./test /code/app
 
 WORKDIR /code/app
