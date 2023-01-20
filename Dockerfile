@@ -5,7 +5,6 @@ FROM mambaorg/micromamba:1.2.0
 WORKDIR /code
 
 # Copy the file with the requirements to the /code directory.
-# Copy the file with the requirements to the /code directory.
 COPY ./environment.yml /code/environment.yml
 
 RUN micromamba create --name api_up42 --yes --file /code/environment.yml && \
