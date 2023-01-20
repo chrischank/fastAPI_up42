@@ -10,7 +10,7 @@ WORKDIR /code
 COPY ./environment.yml /code/environment.yml
 
 RUN conda config --set restore_free_channel true
-RUN conda env create -f environment.yml --no-builds
+RUN conda env create -f environment.yml
 
 # Activate env
 ENV PATH /opt/conda/envs/api_up42/bin:$PATH
