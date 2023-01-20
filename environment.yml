@@ -5,6 +5,7 @@ channels:
 dependencies:
   - sat-search
   - geopandas
+  - pip
   - rasterio
   - fiona
   - pip:
