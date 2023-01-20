@@ -90,7 +90,7 @@ RUN apt update && apt upgrade
 WORKDIR /code
 
 # Copy the file with the requirements to the /code directory.
-COPY ./env_explicit.yml /code/environment.yml
+COPY ./environment.yml /code/environment.yml
 
 RUN conda config --set restore_free_channel true
 RUN conda env create -f environment.yml
