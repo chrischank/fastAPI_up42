@@ -1,20 +1,20 @@
-FROM continuumio/miniconda3:latest
-
-RUN apt update && apt upgrade
+FROM mambaorg/micromamba:1.2.0
 
 # Set the current working directory to /code.
 #This is where we'll put the environment.yml file and the fastAPI directory.
 WORKDIR /code
 
 # Copy the file with the requirements to the /code directory.
+# Copy the file with the requirements to the /code directory.
 COPY ./environment.yml /code/environment.yml
 
-RUN conda config --set restore_free_channel true
-RUN conda env create -f environment.yml
+RUN micromamba create --name api_up42 --yes --file /code/environment.yml && \
+    micromamba clean --all --yes
+
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
 
 # Activate env
 ENV PATH /opt/conda/envs/api_up42/bin:$PATH
-RUN /bin/bash -c "source activate api_up42"
 
 EXPOSE 80
 
